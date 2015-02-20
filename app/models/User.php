@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Auth\UserTrait;
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use Illuminate\Auth\Reminders\RemindableTrait;
+use Illuminate\Auth\UserInterface;
+use Illuminate\Auth\UserTrait;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
@@ -22,5 +22,18 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var array
 	 */
 	protected $hidden = array('password', 'remember_token');
+
+	/**
+	 *	Attributes you can mass assign
+	 *	@var array
+	 */
+	protected $fillable = array('email', 'password', 'name', 'username');
+
+	//Hash passwords before saving
+	public function setPasswordAttribute($pass) {
+
+		$this->attributes['password'] = Hash::make($pass);
+
+	}
 
 }
