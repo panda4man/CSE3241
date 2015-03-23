@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddNameToBooks extends Migration {
+class CreatePublishersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,8 +12,12 @@ class AddNameToBooks extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('books', function($table) {
-			$table->string('name');
+		Schema::create('publishers', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->string('name', 64)->unique();
+			$table->string('address');
+			$table->timestamps();
 		});
 	}
 
@@ -24,9 +28,7 @@ class AddNameToBooks extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('books', function($table){
-			$table->dropColumn('name');
-		});
+		Schema::drop('publishers');
 	}
 
 }

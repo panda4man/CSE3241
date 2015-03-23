@@ -13,10 +13,17 @@ class CreateWrittenByTable extends Migration {
 	public function up()
 	{
 		Schema::create('written_by', function(Blueprint $table){
-			$table->string('isbn');
-			$table->string('published_name');
-			$table->foreign('isbn')->references('isbn')->on('books');
-			$table->foreign('published_name')->references('published_name')->on('authors');
+			$table->increments('id');
+			$table->integer('book_id')->unsigned();
+			$table->integer('author_id')->unsigned();
+		});
+
+		Schema::table('written_by', function ($table){
+			$table->foreign('book_id')->references('id')->on('books');
+		});
+
+		Schema::table('written_by', function ($table){
+			$table->foreign('author_id')->references('id')->on('authors');
 		});
 	}
 
