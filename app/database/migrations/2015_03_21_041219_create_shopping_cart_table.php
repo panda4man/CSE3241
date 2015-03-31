@@ -17,8 +17,8 @@ class CreateShoppingCartTable extends Migration {
 			$table->integer('user_id')->unsigned();
 			$table->string('purchase_status', 32);
 			$table->date('purchase_date');
-			$table->foreign('user_id')->references('id')->on('users');
 			$table->timestamps();
+			$table->foreign('user_id')->references('id')->on('users');
 		});
 	}
 

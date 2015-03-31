@@ -12,7 +12,7 @@ class ContainsTableSeeder extends Seeder {
 		$contains->delete();
 		$books = Book::all()->lists('id');
 		$carts = DB::table('shopping_cart')->lists('id');
-		foreach(range(1, 5) as $index)
+		foreach(range(1, 20) as $index)
 		{
 			$contains->insert([
 				'book_id' => $faker->randomElement($books),

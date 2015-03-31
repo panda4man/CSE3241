@@ -9,7 +9,7 @@ class UsersTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 		DB::table('users')->delete();
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 19) as $index)
 		{
 			User::create([
 				'username' => $faker->userName,

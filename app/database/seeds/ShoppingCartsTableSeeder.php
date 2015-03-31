@@ -10,11 +10,11 @@ class ShoppingCartsTableSeeder extends Seeder {
 		$faker = Faker::create();
 		DB::table('shopping_cart')->delete();
 		$users = User::all()->lists('id');
-		foreach(range(1, 5) as $index)
+		foreach(range(1, 20) as $index)
 		{
 			DB::table('shopping_cart')->insert([
 				'user_id' => $faker->randomElement($users),
-				'purchase_status' => $faker->word,
+				'purchase_status' => "sold",
 				'purchase_date' => $faker->dateTime()
 			]);
 		}
