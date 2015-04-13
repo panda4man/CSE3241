@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAuthorsTable extends Migration {
+class CreateWorksForTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,12 @@ class CreateAuthorsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('authors', function (Blueprint $table){
+		Schema::create('works_for', function(Blueprint $table){
 			$table->increments('id');
-			$table->string('published_name')->unique();
+			$table->integer('author_id')->unsigned();
 			$table->integer('publisher_id')->unsigned();
-			$table->string('first_name', 16);
-			$table->string('middle_name', 16);
-			$table->string('last_name', 16);
-			$table->string('genre');
-			$table->timestamps();
+			$table->foreign('author_id')->references('id')->on('authors');
+			$table->foreign('publisher_id')->references('id')->on('publishers');
 		});
 	}
 
@@ -31,7 +28,7 @@ class CreateAuthorsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('authors');
+		Schema::drop('works_for');
 	}
 
 }
