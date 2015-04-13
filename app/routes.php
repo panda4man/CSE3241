@@ -24,3 +24,7 @@ Route::group(array("before" => "auth"), function () {
 	// books resource
 	Route::resource('books', 'BooksController');
 });
+
+App::missing(function($exception){
+	return Response::view('errors.missing', array(), 404);
+});

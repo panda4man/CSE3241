@@ -38,7 +38,7 @@
         	</div><!--/.container-fluid -->
      	</nav>
         <div class="container">
-        	@yield('content');
+        	@yield('content')
         </div><!-- /.container -->
         <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
