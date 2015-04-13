@@ -14,7 +14,6 @@ class AuthorsTableSeeder extends Seeder {
 		{
 			Author::create([
 				'published_name' => $faker->name(),
-				'publisher_id' => $faker->randomElement($publishers),
 				'first_name' => $faker->firstName(),
 				'middle_name' => $faker->firstName(),
 				'last_name' => $faker->lastName,
