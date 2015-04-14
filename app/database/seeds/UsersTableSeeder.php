@@ -26,6 +26,13 @@ class UsersTableSeeder extends Seeder {
 			'password' => 'password',
 			'address' => '1504 Thurell Rd. Columbus Ohio'
 		));
+		User::create(array(
+			'username' => 'admin',
+			'name' => 'The Administrator',
+			'email' => 'admin@book-store.dev',
+			'password' => 'password',
+			'address' => '123 Fake Street, Columbus Ohio'
+		));
 	}
 
 }
