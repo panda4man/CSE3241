@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('ShoppingCartsTableSeeder');
 		$this->call('ContainsTableSeeder');
 		$this->call('CommentOnTableSeeder');
+		$this->call('WorksForTableSeeder');
 		DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 	}
 }
