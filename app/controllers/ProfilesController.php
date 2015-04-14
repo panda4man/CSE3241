@@ -42,7 +42,12 @@ class ProfilesController extends \BaseController {
 	public function update($id)
 	{
 		$input = Input::all();
-		$validation = Validator::make($input, User::$rules);
+		$rules = array(
+			'name' => 'required|min:5|max:32',
+			'username' => 'required|min:5|max:32|unique:users,username,'.$id,
+			'email' => 'required|unique:users,email,'.$id
+		);
+		$validation = Validator::make($input, $rules);
 		if($validation->passes()){
 			$user = User::find($id);
 			$user->update($input);
