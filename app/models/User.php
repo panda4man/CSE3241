@@ -54,4 +54,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function setPasswordAttribute($pass) {
 		$this->attributes['password'] = Hash::make($pass);
 	}
+
+	//Return admin status
+	public function hasAdminCredentials() {
+		if (DB::table('admin_users')->where('admin_id', '=', $this->id)->get()) {
+			return(true);
+		} else {
+			return(false);
+		}
+	}
 }	
