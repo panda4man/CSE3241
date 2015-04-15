@@ -57,10 +57,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	//Return admin status
 	public function hasAdminCredentials() {
-		if (DB::table('admin_users')->where('admin_id', '=', $this->id)->get()) {
-			return(true);
-		} else {
-			return(false);
+		if (!$this->adminStatus) {
+			if (DB::table('admin_users')->where('admin_id', '=', $this->id)->get()) {
+				$this->adminStatus = true;
+			} else {
+				$this->adminStatus = false;
+			}
 		}
+		return($this->adminStatus);
 	}
 }	
