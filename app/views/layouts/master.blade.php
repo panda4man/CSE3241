@@ -32,7 +32,7 @@
                         <!-- here we check if the current logged in user is part of the special -->
                         <!-- admin users table, if so we display access to the admin console -->
                         @if(DB::table('admin_users')->where('admin_id', '=', Auth::id())->get())
-                        <li>{{link_to_route('admin.index', 'Admin Console', array($user->id))}}</li>
+                        <li>{{link_to_route('admin.index', 'Admin Console')}}</li>
                         @endif
 		                  		<li><a href="{{ URL::to('logout') }}">Logout</a></li>
 		                	</ul>
