@@ -23,10 +23,10 @@ Route::group(array("before" => "auth"), function () {
 
 	// books resource
 	Route::resource('books', 'BooksController');
-});
 
-// route to show admin page
+	// route to show admin page
 Route::get('admin', array('as' => 'admin.index', 'uses' => 'AdminController@showAdmin'));
+});
 
 App::missing(function($exception){
 	return Response::view('errors.missing', array(), 404);
