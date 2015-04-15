@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/admin.css">
     </head>
     <body>
   		<nav class="navbar navbar-default navbar-fixed-top">
@@ -29,11 +29,6 @@
 		                	<ul class="dropdown-menu" role="menu">
 		                		<li>{{link_to_route('profiles.show', 'View', array($user->id))}}</li>
 		                		<li>{{link_to_route('profiles.edit', "Edit", array($user->id))}}</li>
-                        <!-- here we check if the current logged in user is part of the special -->
-                        <!-- admin users table, if so we display access to the admin console -->
-                        @if(DB::table('admin_users')->where('admin_id', '=', Auth::id())->get())
-                        <li>{{link_to_route('admin.index', 'Admin Console', array($user->id))}}</li>
-                        @endif
 		                  		<li><a href="{{ URL::to('logout') }}">Logout</a></li>
 		                	</ul>
 		              	</li>
