@@ -46,8 +46,8 @@ class BooksController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$book = Book::find($id);
-
+		$book = Book::find($id);	
+		$book->average_rating = $book->comments()->avg('rating');
 		return View::make('books.show')->with('book', $book);
 	}
 
