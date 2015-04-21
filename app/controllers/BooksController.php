@@ -46,7 +46,9 @@ class BooksController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$book = Book::find($id);
+
+		return View::make('books.show')->with('book', $book);
 	}
 
 	/**

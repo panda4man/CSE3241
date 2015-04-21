@@ -7,7 +7,7 @@ class Comment extends Eloquent {
 
 	// DEFINE RELATIONSHIPS --------------------------------------------------
 	// params: relatated_table, pivot_table, key1, key2
-	public function customer() {
+	public function user() {
 		return $this->belongsTo('User');
 	}
 

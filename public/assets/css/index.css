@@ -5,3 +5,8 @@
 body {
 	padding-top:70px;
 }
+
+.comment {
+	border-bottom:1px solid black;
+	margin-bottom:20px;
+}

@@ -17,6 +17,7 @@ class CreateCommentsTable extends Migration {
 			$table->integer('book_id')->unsigned();
 			$table->integer('user_id')->unsigned();
 			$table->timestamp('utc_time');
+			$table->string('title');
 			$table->integer('rating')->default(0);
 			$table->string('text');
 			$table->foreign('user_id')->references('id')->on('users');
