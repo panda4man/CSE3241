@@ -15,4 +15,16 @@
 			<div class="col-sm-12">{{$comment->text}}</div>
 		</div>
 	@endforeach
+	<hr>
+	{{Form::open(array('route' => 'comments.store'))}}
+		{{Form::hidden('user_id', $user->id)}}
+		{{Form::hidden('book_id', $book->id)}}
+		{{ Form::label('title', 'Title:') }}
+		{{ Form::text('title') }}
+		{{ Form::label('rating', 'Rating:') }}
+		{{ Form::number('rating') }}
+		{{ Form::label('text', 'Comment:') }}
+		{{ Form::textarea('text') }}
+		{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
+	{{Form::close()}}
 @stop

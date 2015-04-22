@@ -24,6 +24,9 @@ Route::group(array("before" => "auth"), function () {
 	// books resource
 	Route::resource('books', 'BooksController');
 
+	// comments resource
+	Route::resource('comments', 'CommentsController');
+
 	// route to show admin page
 Route::get('admin', array('as' => 'admin.index', 'uses' => 'AdminController@showAdmin'));
 });

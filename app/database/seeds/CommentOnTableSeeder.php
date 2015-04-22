@@ -17,9 +17,8 @@ class CommentOnTableSeeder extends Seeder {
 			$comment->insert([
 				'book_id' => $faker->randomElement($books),
 				'user_id' => $faker->randomElement($users),
-				'utc_time' => $faker->dateTime(),
 				'title' => $faker->sentence(3),
-				'rating' => $faker->numberBetween(0,5),
+				'rating' => $faker->numberBetween(1,5),
 				'text' => $faker->text(255)
 			]);
 		}
