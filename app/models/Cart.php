@@ -3,7 +3,7 @@
 class Cart extends Eloquent {
 	protected $fillable = Array();
 
-	public function customer () {
+	public function user () {
 		return $this->belongsTo('User');
 	}
 
