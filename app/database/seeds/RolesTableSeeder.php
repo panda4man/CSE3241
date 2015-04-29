@@ -8,12 +8,19 @@ class RolesTableSeeder extends Seeder {
 			'name' => 'Admin'
 		]);
 
-		Role::create([
+		$customer = Role::create([
 			'name' => 'Customer'
 		]);
 
-		$andrew = User::where('username', 'aclinton')->first();
-		$andrew->attachRole($admin);
+		$users = User::all();
+
+		foreach($users as $user){
+			if($user->username == 'aclinton'){
+				$user->attachRole($admin);
+			} else {
+				$user->attachRole($customer);
+			}
+		}
 	}
 
 }
