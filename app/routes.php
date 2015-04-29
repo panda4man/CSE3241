@@ -28,7 +28,7 @@ Route::group(array("before" => "auth"), function () {
 	Route::resource('comments', 'CommentsController');
 
 	// route to show admin page
-Route::get('admin', array('as' => 'admin.index', 'uses' => 'AdminController@showAdmin'));
+	Route::get('admin', array('as' => 'admin.index', 'uses' => 'AdminController@showAdmin'));
 });
 
 App::missing(function($exception){

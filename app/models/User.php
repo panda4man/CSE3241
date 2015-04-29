@@ -4,9 +4,11 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\UserTrait;
+use Zizaco\Entrust\HasRole;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 	use UserTrait, RemindableTrait;
+	use HasRole;
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

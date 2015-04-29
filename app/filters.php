@@ -54,6 +54,8 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+Entrust::routeNeedsRole( 'admin*', 'Admin', Redirect::to('/') );
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter
